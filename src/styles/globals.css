@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* --font-serif kept as a token alias so existing `font-serif` classes
+     resolve to Geist Sans without touching every component. */
+  --font-serif: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-bg: #fafaf7;
+  --color-bg-elevated: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #57575a;
+  --color-ink-mute: #8a8a8f;
+  --color-hairline: #e5e5e0;
+  --color-hairline-strong: #d4d4cf;
+
+  --color-emerald: #2563eb;
+  --color-emerald-soft: #dbeafe;
+  --color-emerald-ink: #1d4ed8;
+
+  --color-indigo: #6366f1;
+  --color-violet: #a78bfa;
+
+  --color-surface: #f4f4ef;
+  --color-surface-2: #ecece7;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-hairline: 0 0 0 1px var(--color-hairline);
+  --shadow-soft: 0 1px 2px rgba(10, 10, 10, 0.04), 0 8px 32px -12px rgba(10, 10, 10, 0.08);
+  --shadow-lift: 0 4px 16px -4px rgba(10, 10, 10, 0.08), 0 24px 48px -16px rgba(10, 10, 10, 0.12);
+  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.16), 0 8px 32px -8px rgba(37, 99, 235, 0.24);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --container-page: 1280px;
+  --container-narrow: 960px;
+  --container-prose: 680px;
+}
+
+.dark {
+  --color-bg: #09090b;
+  --color-bg-elevated: #101014;
+  --color-ink: #fafafa;
+  --color-ink-soft: #a1a1aa;
+  --color-ink-mute: #6b6b73;
+  --color-hairline: #1f1f23;
+  --color-hairline-strong: #2a2a30;
+
+  --color-emerald: #60a5fa;
+  --color-emerald-soft: rgba(96, 165, 250, 0.12);
+  --color-emerald-ink: #93c5fd;
+
+  --color-indigo: #818cf8;
+  --color-violet: #c4b5fd;
+
+  --color-surface: #101014;
+  --color-surface-2: #17171b;
+
+  --shadow-hairline: 0 0 0 1px var(--color-hairline);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 32px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lift: 0 4px 16px -4px rgba(0, 0, 0, 0.5), 0 24px 48px -16px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 0 1px rgba(96, 165, 250, 0.2), 0 8px 32px -8px rgba(96, 165, 250, 0.28);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-hairline);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    scroll-behavior: auto;
+    overflow-x: clip;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-emerald);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-emerald);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.032em;
+    line-height: 1.02;
+  }
+
+  h1 { font-weight: 600; letter-spacing: -0.04em; }
+  h2 { font-weight: 550; letter-spacing: -0.035em; }
+
+  .font-mono, code, pre, kbd, samp {
+    font-family: var(--font-mono);
+    font-feature-settings: "ss01", "ss02", "cv11";
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/grain.svg");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+
+  .dark .grain::after {
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (max-width: 479px) {
+    .container-page,
+    .container-narrow { padding-inline: 1rem; }
+  }
+  @media (min-width: 768px) {
+    .container-page { padding-inline: 2rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-page { padding-inline: 3rem; }
+  }
+
+  .container-narrow {
+    width: 100%;
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .hairline {
+    background: var(--color-hairline);
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-emerald) 0%,
+      var(--color-indigo) 55%,
+      var(--color-violet) 100%
+    );
+  }
+
+  .text-gradient-brand {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-emerald) 0%,
+      var(--color-indigo) 55%,
+      var(--color-violet) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 40s) linear infinite;
+  }
+  .animate-marquee:hover { animation-play-state: paused; }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+  }
+  .animate-pulse-dot { animation: pulse-dot 2.4s var(--ease-out-quart) infinite; }
+
+  @keyframes expand {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes collapse {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print { display: none !important; }
+  .print-page {
+    background: white !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
