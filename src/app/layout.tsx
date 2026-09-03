@@ -21,7 +21,7 @@ const themeScript = `(() => {
 })();`;
 
 export const metadata: Metadata = {
-  title: "Mohammad Taqi Khan · Software Engineer",
+  title: "Taqi Khan",
   description: "Software engineer building Node.js systems, data pipelines, serverless workflows, and full stack products.",
 };
 

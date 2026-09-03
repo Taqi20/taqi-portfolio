@@ -4,7 +4,7 @@ import { site } from "@/constants/site";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
-  title: `Resume — ${profile.name} · ${site.shortName}`,
+  title: `Resume — ${site.shortName}`,
   description: `One-page résumé for ${profile.name}, ${profile.role}.`,
 };
 

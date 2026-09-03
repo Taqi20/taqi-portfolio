@@ -12,7 +12,7 @@ export const experience: Experience[] = [
     achievements: [
       "Independently built and deployed a Node.js migration pipeline for 5M+ customer profiles, addresses, and reward balances, helping existing users retain their accounts on the new platform.",
       "Streamed CSV data from AWS S3 with chunked concurrency, validation, duplicate handling, API rate-limit controls, retries, and GCS archiving.",
-      "Built and deployed a serverless order-tracking system processing roughly 10K orders a day; scheduled Node.js work reads PostgreSQL-backed active orders, polls external status APIs concurrently, and updates customer-facing tracking data.",
+      "Built and deployed a serverless order-tracking system processing 12K+ orders a day; scheduled Node.js work reads PostgreSQL-backed active orders, polls external status APIs concurrently, and updates customer-facing tracking data.",
       "Built the customer email flow across the order lifecycle from Figma designs using dynamic JavaScript templates and webhooks, plus recurring CSV export automation to AWS S3.",
       "Contributed production code across four projects, including delivery-partner assignment and refund extensions; raised Azure Repos PRs, deployed serverless components, and trained L1 support.",
     ],
@@ -32,7 +32,7 @@ export const experience: Experience[] = [
     ],
     impact: [
       { metric: "5M+", label: "Customer records migrated" },
-      { metric: "~10K", label: "Orders tracked per day" },
+      { metric: "12K+", label: "Orders tracked per day" },
       { metric: "4", label: "Production projects contributed to" },
     ],
   },

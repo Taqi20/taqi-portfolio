@@ -10,7 +10,7 @@ export function About() {
   const nameParts = profile.name.trim().split(/\s+/);
   const familyName = nameParts.at(-1) ?? "";
   const givenName = nameParts.slice(0, -1).join(" ");
-  const fyndKeywords = ["5M+ records", "10K orders/day", "Node.js streams", "Rate limiting"];
+  const fyndKeywords = ["5M+ records", "12K+ orders/day", "Node.js streams", "Rate limiting"];
 
   return (
     <Section

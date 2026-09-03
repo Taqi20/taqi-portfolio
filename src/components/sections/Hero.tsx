@@ -32,7 +32,7 @@ export function Hero() {
       <div className="relative z-10 container-page flex flex-col gap-8 py-6 md:gap-12 md:py-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
           <div className="flex flex-col gap-7 md:gap-8">
-            <h1 className="font-serif text-[clamp(2.1rem,5vw,4.25rem)] leading-[1.02] tracking-[-0.035em] text-balance">
+            <h1 className="font-serif text-[clamp(2.1rem,5vw,4.25rem)] leading-[1.02] tracking-[-0.035em] text-balance lg:text-[clamp(2.75rem,4vw,3.75rem)]">
               <RevealText text={`${profile.headline.lead}`} className="mr-4" />
               <span className="italic text-[color:var(--color-emerald-ink)] dark:text-[color:var(--color-emerald)]">
                 <RevealText text={profile.headline.accent} delay={0.15} />

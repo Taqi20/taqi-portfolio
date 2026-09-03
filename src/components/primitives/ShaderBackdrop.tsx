@@ -71,13 +71,13 @@ export function ShaderBackdrop({ className }: { className?: string }) {
         float n = 0.5 + 0.5 * (n1 * 0.6 + n2 * 0.4);
 
         // brand palette
-        vec3 emerald = vec3(0.063, 0.725, 0.506);
+        vec3 cobalt  = vec3(0.145, 0.388, 0.922);
         vec3 indigo  = vec3(0.388, 0.400, 0.945);
         vec3 violet  = vec3(0.655, 0.545, 0.980);
         vec3 bgLight = vec3(0.980, 0.980, 0.968);
         vec3 bgDark  = vec3(0.035, 0.035, 0.043);
 
-        vec3 wash = mix(emerald, indigo, n);
+        vec3 wash = mix(cobalt, indigo, n);
         wash = mix(wash, violet, smoothstep(0.4, 1.0, n));
 
         // radial vignette pulling to bg

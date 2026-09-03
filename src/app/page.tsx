@@ -3,7 +3,7 @@ import { Landing } from "@/components/pages/Landing";
 import { site } from "@/constants/site";
 
 export const metadata: Metadata = {
-  title: `${site.title} · ${site.shortName}`,
+  title: site.title,
   description: site.description,
 };
 

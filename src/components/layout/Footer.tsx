@@ -20,7 +20,7 @@ export function Footer() {
               {profile.wordmark}
             </Link>
             <p className="max-w-sm font-serif text-2xl leading-tight text-balance">
-              {profile.tagline}
+              Node.js · React · Production Systems
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[color:var(--color-ink-soft)]">
               Available for SDE opportunities. The best way to reach me is email, LinkedIn, or GitHub.
